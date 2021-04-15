@@ -8,13 +8,44 @@
 import SwiftUI
 
 struct CurrenciesListView: View {
+    @ObservedObject var viewModel: CcurrenciesListViewModel
+    
+    init(viewModel: CcurrenciesListViewModel) {
+        self.viewModel = viewModel
+    }
+    
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List {
+                
+                Section {
+                    
+                    ForEach(viewModel.rates, content: CurrencyItemView
+                                .init(viewModel:))
+                    
+                    
+                }
+                
+                
+                
+                
+            }
+            .listStyle(GroupedListStyle())
+            .navigationBarTitle(viewModel.title)
+            
+            
+            
+            
+            
+        }
     }
 }
 
 struct CurrenciesListView_Previews: PreviewProvider {
     static var previews: some View {
-        CurrenciesListView()
+        
+        let viewModel = CcurrenciesListViewModel(converterService: FileCurrencyService())
+      return  CurrenciesListView(viewModel: viewModel)
     }
 }

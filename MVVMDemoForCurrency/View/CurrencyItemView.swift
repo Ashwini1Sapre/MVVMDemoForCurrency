@@ -8,13 +8,29 @@
 import SwiftUI
 
 struct CurrencyItemView: View {
+    
+    @ObservedObject var viewModel: CurrencyItemViewModel
+    
+    
+    init(viewModel: CurrencyItemViewModel) {
+        self.viewModel = viewModel
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Text(viewModel.title)
+            Spacer()
+            Text(viewModel.value)
+            
+            
+        }
     }
 }
 
 struct CurrencyItemView_Previews: PreviewProvider {
     static var previews: some View {
-        CurrencyItemView()
+        let currency = CurrencyRate(currencyIso: "USD", rate: 1.3)
+        let viewModel = CurrencyItemViewModel(currency: currency)
+      return   CurrencyItemView(viewModel: viewModel)
     }
 }

@@ -7,14 +7,28 @@
 
 import SwiftUI
 
-struct Currency: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+enum currency: String {
+    case GBP
+    case EUR
+    case USD
+    
+    var symbol : String {
+        switch self {
+        case .EUR: return "€"
+        case .USD: return "$"
+        case .GBP: return "£"
+            
+        }
+     }
+   
 }
 
-struct Currency_Previews: PreviewProvider {
-    static var previews: some View {
-        Currency()
-    }
+struct CurrencyRate {
+    
+    let currencyIso : String
+    let rate: Double
+    
+  
 }
+
+

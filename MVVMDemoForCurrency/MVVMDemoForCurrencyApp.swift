@@ -11,7 +11,28 @@ import SwiftUI
 struct MVVMDemoForCurrencyApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            
+            TabView {
+                VedioPlayerView()
+                    .tabItem {
+                        
+                        Label("Video", systemImage: "video")
+                    }
+                
+                            let viewModel = CcurrenciesListViewModel(converterService: FileCurrencyService() )
+                            CurrenciesListView(viewModel: viewModel)
+                                .tabItem {
+                                    
+                                    Label("Currency", systemImage: "coloncurrencysign.circle.fill")
+                                }
+                
+                
+            }
+           
+            
+            
+
+           
         }
     }
 }

@@ -50,8 +50,9 @@ class CcurrenciesListViewModel: ObservableObject, Identifiable {
                 if let symbol = converter.baseSymbol {
                     
                     self.title = "Currency Exchange \(symbol)"
+                        
                 }
-                
+            
                 
             }
           

@@ -13,10 +13,11 @@ import Combine
 
 
 struct VedioPlayerView1: View {
-    @ObservedObject var ViewModel: PlayerViewModel
+    @ObservedObject var ViewModel: PlayerViewModel1
     init() {
         
-        ViewModel = PlayerViewModel(fileName: "video")
+        ViewModel = PlayerViewModel1(fileName: "video")
+        
         
     }
   
@@ -25,16 +26,9 @@ struct VedioPlayerView1: View {
             VStack {
                 
                 PlayerContainerView(player: ViewModel.player, gravity: .resize)
-                    .frame(width: 250, height: 250)
-                    .blur(radius: 4.0)
+                    .frame(width: 230, height: 230)
+                    .blur(radius: 2.0)
                     .clipShape(Circle())
-                
-                PlayerContainerView(player: ViewModel.player, gravity: .ascpectFill)
-                    .frame( height: 250)
-                    .overlay(Color.black.opacity(0.1))
-                    .padding()
-                    .border(Color.black,width: 2)
-                    .padding()
                 Button(action: {
                     self.ViewModel.isPlaying.toggle()
                     
@@ -43,6 +37,13 @@ struct VedioPlayerView1: View {
                         .padding()
                 })
                 .background(Color.black)
+                PlayerContainerView(player: ViewModel.player, gravity: .ascpectFill)
+                    .frame( height: 250)
+                    .overlay(Color.black.opacity(0.1))
+                    .padding()
+                    .border(Color.black,width: 2)
+                    .padding()
+               
                 
             }
           

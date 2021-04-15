@@ -24,20 +24,13 @@ struct CurrenciesListView: View {
                     ForEach(viewModel.rates, content: CurrencyItemView
                                 .init(viewModel:))
                     
-                    
                 }
-                
-                
-                
-                
+              
             }
             .listStyle(GroupedListStyle())
             .navigationBarTitle(viewModel.title)
-            
-            
-            
-            
-            
+            .font(.system(size: 12))
+          
         }
     }
 }

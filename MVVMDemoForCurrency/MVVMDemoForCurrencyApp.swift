@@ -13,7 +13,7 @@ struct MVVMDemoForCurrencyApp: App {
         WindowGroup {
             
             TabView {
-                VedioPlayerView()
+                VedioPlayerView1()
                     .tabItem {
                         
                         Label("Video", systemImage: "video")
